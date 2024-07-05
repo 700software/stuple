@@ -1,20 +1,23 @@
 {
   "name": "stuple",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "More to come! :)",
-  "main": "index.tsx",
+  "main": "index.js",
   "scripts": {
-    "publish": "npm publish"
+    "build": "tsc",
+    "publish": "npm run build && npm publish"
   },
   "keywords": [
     "react",
+    "slice",
     "state",
     "tuple"
   ],
   "author": "Bryan Field <bfield@700software.com>",
-  "license": "ISC",
   "devDependencies": {
     "@types/react": "^18.3.3",
-    "react": "^18.3.1"
+    "eslint-config-next": "^14.2.4",
+    "react": "^18.3.1",
+    "typescript": "^5.5.3"
   }
 }
