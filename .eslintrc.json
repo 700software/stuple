@@ -1,6 +1,8 @@
 {
-  "extends": "next/core-web-vitals",
+  "extends": ["next/core-web-vitals"],
+  "plugins": ["@typescript-eslint"],
   "rules": {
+    "@typescript-eslint/consistent-type-imports": "warn",
     "no-useless-rename": "warn",
     "object-shorthand": "warn",
     "prefer-template": "warn",
