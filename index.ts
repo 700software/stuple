@@ -11,10 +11,10 @@ export function useStuple<T>(): Stuple<T | undefined>
 export function useStuple<T = undefined>(initialValue?: T): Stuple<T>
 export function useStuple<T = undefined>(initialValue?: T): Stuple<T> {
   // @ts-ignore
-  return stuple(useState(initialValue))
+  return asStuple(useState(initialValue))
 }
 
-export function stuple<Tuple extends UsedState<any>>(
+export function asStuple<Tuple extends UsedState<any>>(
   tuple: Tuple,
 ): Tuple extends UsedState<infer T>
   ? Stuple<T>
@@ -63,7 +63,7 @@ export function subStuple<T, K extends KeyOf<T>, U extends T[K]>(
   initialValue?: U,
 ): Stuple<T[K]> {
   // @ts-ignore
-  return stuple(subState(outerStuple, key, initialValue))
+  return asStuple(subState(outerStuple, key, initialValue))
 }
 
 export function subState<T, K extends KeyOf<T>, U extends T[K]>(
