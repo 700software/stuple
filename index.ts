@@ -1,10 +1,21 @@
 import type { Dispatch, SetStateAction } from 'react'
 import { useCallback, useReducer, useRef, useState } from 'react'
 
+/**
+ * Object form of React's `useState` return value. {@link UsedState}
+ * @example { val: value, set: setValue }
+ */
 export type Stuple<T> = { val: T; set: SetState<T> }
 
+/**
+ * This is simply the return value of React's `useState`
+ * @example [value, setValue]
+ */
 export type UsedState<T> = readonly [T, SetState<T>]
 
+/**
+ * Shorthand alias type for the vanilla React set state function.
+ */
 export type SetState<T> = Dispatch<SetStateAction<T>>
 
 export function useStuple<T>(): Stuple<T | undefined>
@@ -24,35 +35,6 @@ export function asStuple<Tuple extends UsedState<any>>(
     val: tuple[0],
     set: tuple[1],
   }
-}
-
-export function useStupleWithDeps<T>(init: () => T, deps: any[]): Stuple<T> {
-  const valueRef = useRef<{ deps: any[]; value: T }>()
-
-  const triggerRerender = useReducer(() => ({}), {})[1]
-
-  const set: SetState<T> = useCallback(
-    (nextState: SetStateAction<T>) => {
-      const newValue =
-        typeof nextState === 'function'
-          ? (nextState as (oldState: T) => T)(valueRef.current!.value)
-          : nextState
-      const different = valueRef.current!.value !== newValue
-      valueRef.current!.value = newValue
-      if (different) triggerRerender()
-    },
-    [triggerRerender],
-  )
-
-  if (!valueRef.current) {
-    valueRef.current = { deps, value: init() }
-  } else {
-    if (!valueRef.current.deps.every((v, i) => v === deps[i])) {
-      valueRef.current = { deps, value: init() }
-    }
-  }
-
-  return { val: valueRef.current.value, set }
 }
 
 export type KeyOf<T> = T extends readonly any[] ? number & keyof T : keyof T
@@ -92,4 +74,43 @@ export function subState<T, K extends KeyOf<T>, U extends T[K]>(
       })
     },
   ]
+}
+
+/**
+ * Same as {@link useStateWithDeps} but returns the tuple {@link Stuple} format instead of {@link UsedState} format.
+ */
+export function useStupleWithDeps<T>(init: () => T, deps: any[]): Stuple<T> {
+  return asStuple(useStateWithDeps(init, deps))
+}
+
+/**
+ * Wipes and resets the local state value of any of the deps change.
+ */
+export function useStateWithDeps<T>(init: () => T, deps: any[]): UsedState<T> {
+  const valueRef = useRef<{ deps: any[]; value: T }>()
+
+  const triggerRerender = useReducer(() => ({}), {})[1]
+
+  const set: SetState<T> = useCallback(
+    (nextState: SetStateAction<T>) => {
+      const newValue =
+        typeof nextState === 'function'
+          ? (nextState as (oldState: T) => T)(valueRef.current!.value)
+          : nextState
+      const different = valueRef.current!.value !== newValue
+      valueRef.current!.value = newValue
+      if (different) triggerRerender()
+    },
+    [triggerRerender],
+  )
+
+  if (!valueRef.current) {
+    valueRef.current = { deps, value: init() }
+  } else {
+    if (!valueRef.current.deps.every((v, i) => v === deps[i])) {
+      valueRef.current = { deps, value: init() }
+    }
+  }
+
+  return [valueRef.current.value, set]
 }
