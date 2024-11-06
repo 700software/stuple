@@ -18,6 +18,13 @@ export type UsedState<T> = readonly [T, SetState<T>]
  */
 export type SetState<T> = Dispatch<SetStateAction<T>>
 
+/**
+ * This type indicates that you accept a set state function, similar to {@link SetState},
+ * but that you never intend to pass a function to it
+ * so the implementation could be a simpler non-vanilla-React alternative if the consumer desires.
+ */
+export type SetStateSimple<T> = Dispatch<SetStateAction<T>>
+
 export function useStuple<T>(): Stuple<T | undefined>
 export function useStuple<T = undefined>(initialValue?: T): Stuple<T>
 export function useStuple<T = undefined>(initialValue?: T): Stuple<T> {

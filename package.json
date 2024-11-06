@@ -1,11 +1,11 @@
 {
   "name": "stuple",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "More to come! :)",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "publish": "npm run build && npm publish"
+    "publish": "npm run build"
   },
   "keywords": [
     "react",
