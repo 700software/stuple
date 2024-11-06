@@ -1,11 +1,12 @@
 {
   "name": "stuple",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "More to come! :)",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "publish": "npm run build"
+    "publish": "npm install && npm run build && git add . && node -e \"require('child_process').execSync(`git commit -m v${require('./package.json').version}`, { stdio: 'inherit' })\"",
+    "postpublish": "git push"
   },
   "keywords": [
     "react",

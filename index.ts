@@ -23,7 +23,7 @@ export type SetState<T> = Dispatch<SetStateAction<T>>
  * but that you never intend to pass a function to it
  * so the implementation could be a simpler non-vanilla-React alternative if the consumer desires.
  */
-export type SetStateSimple<T> = Dispatch<SetStateAction<T>>
+export type SetStateSimple<T> = (nextState: T) => void
 
 export function useStuple<T>(): Stuple<T | undefined>
 export function useStuple<T = undefined>(initialValue?: T): Stuple<T>
