@@ -2,16 +2,20 @@ import type { Dispatch, SetStateAction } from 'react'
 import { useCallback, useReducer, useRef, useState } from 'react'
 
 /**
- * Object form of React's `useState` return value. {@link UsedState}
+ * Object form of React's `useState` return value {@link UsedState}.
  * @example { val: value, set: setValue }
  */
 export type Stuple<T> = { val: T; set: SetState<T> }
+
+export type SimpleStuple<T> = { val: T; set: SetStateSimple<T> }
 
 /**
  * This is simply the return value of React's `useState`
  * @example [value, setValue]
  */
 export type UsedState<T> = readonly [T, SetState<T>]
+
+export type SimpleState<T> = readonly [T, SetStateSimple<T>]
 
 /**
  * Shorthand alias type for the vanilla React set state function.
@@ -28,42 +32,56 @@ export type SetStateSimple<T> = (nextState: T) => void
 export function useStuple<T>(): Stuple<T | undefined>
 export function useStuple<T = undefined>(initialValue?: T): Stuple<T>
 export function useStuple<T = undefined>(initialValue?: T): Stuple<T> {
-  // @ts-ignore
-  return asStuple(useState(initialValue))
+  return asStuple(useState(initialValue)) as Stuple<T>
 }
 
-export function asStuple<Tuple extends UsedState<any>>(
-  tuple: Tuple,
-): Tuple extends UsedState<infer T>
-  ? Stuple<T>
-  : { val: Tuple[0]; set: Tuple[1] } {
-  // @ts-ignore
+export function asStuple<Tuple extends UsedState<any>>(tuple: Tuple) {
+  type ReturnType = Tuple extends UsedState<infer T>
+    ? Stuple<T>
+    : { val: Tuple[0]; set: Tuple[1] }
   return {
     val: tuple[0],
     set: tuple[1],
-  }
+  } as ReturnType
 }
 
-export type KeyOf<T> = T extends readonly any[] ? number & keyof T : keyof T
-
-export function subStuple<T, K extends KeyOf<T>, U extends T[K]>(
-  outerStuple: Stuple<T>,
-  key: K,
-  initialValue?: U,
-): Stuple<T[K]> {
-  // @ts-ignore
-  return asStuple(subState(outerStuple, key, initialValue))
+export function subStuple<
+  T extends any[],
+  K extends number & keyof T,
+  U extends T[K],
+>(outerStuple: Stuple<T>, key: K, initialValue?: U): Stuple<T[K]>
+export function subStuple<
+  T extends ObjectNotArray,
+  K extends keyof T,
+  U extends T[K],
+>(outerStuple: Stuple<T>, key: K, initialValue?: U): Stuple<T[K]>
+export function subStuple<
+  T extends ObjectNotArray | any[],
+  K extends T extends any[] ? number & keyof T : keyof T,
+  U extends T[K],
+>(outerStuple: Stuple<T>, key: K, initialValue?: U): Stuple<T[K]> {
+  // @ts-ignore // needed because we are using overloaded function types (which is needed for type-tests.ts to pass type checks)
+  return asStuple(subState(outerStuple as any, key, initialValue))
 }
 
-export function subState<T, K extends KeyOf<T>, U extends T[K]>(
-  outerStuple: Stuple<T>,
-  key: K,
-  initialValue?: U,
-): UsedState<U> {
+export function subState<
+  T extends any[],
+  K extends number & keyof T,
+  U extends T[K],
+>(outerStuple: Stuple<T>, key: K, initialValue?: U): UsedState<U>
+export function subState<
+  T extends ObjectNotArray,
+  K extends keyof T,
+  U extends T[K],
+>(outerStuple: Stuple<T>, key: K, initialValue?: U): UsedState<U>
+export function subState<
+  T extends ObjectNotArray | any[],
+  K extends T extends any[] ? number & keyof T : keyof T,
+  U extends T[K],
+>(outerStuple: Stuple<T>, key: K, initialValue?: U): UsedState<U> {
   const parentValue = outerStuple.val
   const setParentState = outerStuple.set
   return [
-    // @ts-ignore
     parentValue[key] === undefined ? initialValue : parentValue[key],
     (nextValue) => {
       setParentState((prev) => {
@@ -80,7 +98,7 @@ export function subState<T, K extends KeyOf<T>, U extends T[K]>(
         return newParentValue
       })
     },
-  ]
+  ] as UsedState<U>
 }
 
 /**
@@ -96,7 +114,7 @@ export function useStupleWithDeps<T>(init: () => T, deps: any[]): Stuple<T> {
 export function useStateWithDeps<T>(init: () => T, deps: any[]): UsedState<T> {
   const valueRef = useRef<{ deps: any[]; value: T }>()
 
-  const triggerRerender = useReducer(() => ({}), {})[1]
+  const triggerRerender = useRerenderTrigger()
 
   const set: SetState<T> = useCallback(
     (nextState: SetStateAction<T>) => {
@@ -121,3 +139,9 @@ export function useStateWithDeps<T>(init: () => T, deps: any[]): UsedState<T> {
 
   return [valueRef.current.value, set]
 }
+
+export function useRerenderTrigger() {
+  return useReducer(() => ({}), {})[1]
+}
+
+export type ObjectNotArray = Record<string, unknown>
