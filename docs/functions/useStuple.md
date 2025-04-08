@@ -2,7 +2,7 @@
 
 ***
 
-[stuple](../README.md) / useStuple
+[stuple](../globals.md) / useStuple
 
 # Function: useStuple()
 
@@ -10,7 +10,7 @@
 
 > **useStuple**\<`T`\>(): [`Stuple`](../type-aliases/Stuple.md)\<`undefined` \| `T`\>
 
-Defined in: [index.ts:32](https://github.com/700software/stuple/blob/7e5fa576c70a45df912927e83344e58e412141e4/index.ts#L32)
+Defined in: [index.ts:44](https://github.com/700software/stuple/blob/b84a98dbc1e143b866c355af845d2b37e38561cb/index.ts#L44)
 
 ### Type Parameters
 
@@ -24,9 +24,9 @@ Defined in: [index.ts:32](https://github.com/700software/stuple/blob/7e5fa576c70
 
 ## Call Signature
 
-> **useStuple**\<`T`\>(`initialValue`?): [`Stuple`](../type-aliases/Stuple.md)\<`T`\>
+> **useStuple**\<`T`\>(`initialValue`): [`Stuple`](../type-aliases/Stuple.md)\<`T`\>
 
-Defined in: [index.ts:33](https://github.com/700software/stuple/blob/7e5fa576c70a45df912927e83344e58e412141e4/index.ts#L33)
+Defined in: [index.ts:45](https://github.com/700software/stuple/blob/b84a98dbc1e143b866c355af845d2b37e38561cb/index.ts#L45)
 
 ### Type Parameters
 
@@ -36,9 +36,9 @@ Defined in: [index.ts:33](https://github.com/700software/stuple/blob/7e5fa576c70
 
 ### Parameters
 
-#### initialValue?
+#### initialValue
 
-`T`
+`T` | () => `T`
 
 ### Returns
 

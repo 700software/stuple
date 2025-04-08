@@ -2,13 +2,13 @@
 
 ***
 
-[stuple](../README.md) / SetStateSimple
+[stuple](../globals.md) / SetStateSimple
 
 # Type Alias: SetStateSimple()\<T\>
 
 > **SetStateSimple**\<`T`\> = (`nextState`) => `void`
 
-Defined in: [index.ts:30](https://github.com/700software/stuple/blob/7e5fa576c70a45df912927e83344e58e412141e4/index.ts#L30)
+Defined in: [index.ts:42](https://github.com/700software/stuple/blob/b84a98dbc1e143b866c355af845d2b37e38561cb/index.ts#L42)
 
 This type indicates that you accept a set state function, similar to [SetState](SetState.md),
 but that you never intend to pass a function to it

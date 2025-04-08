@@ -2,13 +2,13 @@
 
 ***
 
-[stuple](../README.md) / useRerenderTrigger
+[stuple](../globals.md) / useRerenderTrigger
 
 # Function: useRerenderTrigger()
 
 > **useRerenderTrigger**(): `DispatchWithoutAction`
 
-Defined in: [index.ts:143](https://github.com/700software/stuple/blob/7e5fa576c70a45df912927e83344e58e412141e4/index.ts#L143)
+Defined in: [index.ts:177](https://github.com/700software/stuple/blob/b84a98dbc1e143b866c355af845d2b37e38561cb/index.ts#L177)
 
 ## Returns
 

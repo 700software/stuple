@@ -2,7 +2,7 @@
 
 ***
 
-[stuple](../README.md) / subState
+[stuple](../globals.md) / subState
 
 # Function: subState()
 
@@ -10,7 +10,7 @@
 
 > **subState**\<`T`, `K`, `U`\>(`outerStuple`, `key`, `initialValue`?): [`UsedState`](../type-aliases/UsedState.md)\<`U`\>
 
-Defined in: [index.ts:67](https://github.com/700software/stuple/blob/7e5fa576c70a45df912927e83344e58e412141e4/index.ts#L67)
+Defined in: [index.ts:84](https://github.com/700software/stuple/blob/b84a98dbc1e143b866c355af845d2b37e38561cb/index.ts#L84)
 
 ### Type Parameters
 
@@ -48,7 +48,7 @@ Defined in: [index.ts:67](https://github.com/700software/stuple/blob/7e5fa576c70
 
 > **subState**\<`T`, `K`, `U`\>(`outerStuple`, `key`, `initialValue`?): [`UsedState`](../type-aliases/UsedState.md)\<`U`\>
 
-Defined in: [index.ts:72](https://github.com/700software/stuple/blob/7e5fa576c70a45df912927e83344e58e412141e4/index.ts#L72)
+Defined in: [index.ts:89](https://github.com/700software/stuple/blob/b84a98dbc1e143b866c355af845d2b37e38561cb/index.ts#L89)
 
 ### Type Parameters
 

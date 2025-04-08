@@ -2,13 +2,18 @@
 
 ***
 
-[stuple](../README.md) / SimpleStuple
+[stuple](../globals.md) / SimpleStuple
 
 # Type Alias: SimpleStuple\<T\>
 
 > **SimpleStuple**\<`T`\> = `object`
 
-Defined in: [index.ts:10](https://github.com/700software/stuple/blob/7e5fa576c70a45df912927e83344e58e412141e4/index.ts#L10)
+Defined in: [index.ts:16](https://github.com/700software/stuple/blob/b84a98dbc1e143b866c355af845d2b37e38561cb/index.ts#L16)
+
+A stuple backed by [SetStateSimple](SetStateSimple.md) instead of [SetState](SetState.md) / [UsedState](UsedState.md).
+
+This simplified stuple cannot be sliced with [subStuple](../functions/subStuple.md) or [subState](../functions/subState.md),
+but is still useful for cutting prop drilling in half.
 
 ## Type Parameters
 
@@ -22,7 +27,7 @@ Defined in: [index.ts:10](https://github.com/700software/stuple/blob/7e5fa576c70
 
 > **set**: [`SetStateSimple`](SetStateSimple.md)\<`T`\>
 
-Defined in: [index.ts:10](https://github.com/700software/stuple/blob/7e5fa576c70a45df912927e83344e58e412141e4/index.ts#L10)
+Defined in: [index.ts:16](https://github.com/700software/stuple/blob/b84a98dbc1e143b866c355af845d2b37e38561cb/index.ts#L16)
 
 ***
 
@@ -30,4 +35,4 @@ Defined in: [index.ts:10](https://github.com/700software/stuple/blob/7e5fa576c70
 
 > **val**: `T`
 
-Defined in: [index.ts:10](https://github.com/700software/stuple/blob/7e5fa576c70a45df912927e83344e58e412141e4/index.ts#L10)
+Defined in: [index.ts:16](https://github.com/700software/stuple/blob/b84a98dbc1e143b866c355af845d2b37e38561cb/index.ts#L16)

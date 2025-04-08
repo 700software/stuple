@@ -2,7 +2,7 @@
 
 ***
 
-[stuple](../README.md) / subStuple
+[stuple](../globals.md) / subStuple
 
 # Function: subStuple()
 
@@ -10,7 +10,7 @@
 
 > **subStuple**\<`T`, `K`, `U`\>(`outerStuple`, `key`, `initialValue`?): [`Stuple`](../type-aliases/Stuple.md)\<`T`\[`K`\]\>
 
-Defined in: [index.ts:48](https://github.com/700software/stuple/blob/7e5fa576c70a45df912927e83344e58e412141e4/index.ts#L48)
+Defined in: [index.ts:65](https://github.com/700software/stuple/blob/b84a98dbc1e143b866c355af845d2b37e38561cb/index.ts#L65)
 
 ### Type Parameters
 
@@ -48,7 +48,7 @@ Defined in: [index.ts:48](https://github.com/700software/stuple/blob/7e5fa576c70
 
 > **subStuple**\<`T`, `K`, `U`\>(`outerStuple`, `key`, `initialValue`?): [`Stuple`](../type-aliases/Stuple.md)\<`T`\[`K`\]\>
 
-Defined in: [index.ts:53](https://github.com/700software/stuple/blob/7e5fa576c70a45df912927e83344e58e412141e4/index.ts#L53)
+Defined in: [index.ts:70](https://github.com/700software/stuple/blob/b84a98dbc1e143b866c355af845d2b37e38561cb/index.ts#L70)
 
 ### Type Parameters
 
