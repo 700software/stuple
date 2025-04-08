@@ -1,0 +1,7 @@
+/.eslintrc.json
+/.prettierrc
+/.vscode
+/docs
+/type-tests.js
+/type-tests.ts
+/typedoc.json

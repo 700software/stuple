@@ -5,8 +5,17 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "publish": "npm install && npm run build && git add . && node -e \"require('child_process').execSync(`git commit -m v${require('./package.json').version}`, { stdio: 'inherit' })\"",
+    "publish": "npm install && typedoc && npm run build && git add . && node -e \"require('child_process').execSync(`git commit -m v${require('./package.json').version}`, { stdio: 'inherit' })\"",
     "postpublish": "git push"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@typescript-eslint/eslint-plugin": "^7.15.0",
+    "eslint-config-next": "^14.2.4",
+    "react": "^18.3.1",
+    "typedoc": "^0.28.2",
+    "typedoc-plugin-markdown": "^4.6.1",
+    "typescript": "^5.5.3"
   },
   "keywords": [
     "react",
@@ -15,12 +24,5 @@
     "tuple"
   ],
   "author": "Bryan Field <bfield@700software.com>",
-  "devDependencies": {
-    "@types/react": "^18.3.3",
-    "@typescript-eslint/eslint-plugin": "^7.15.0",
-    "eslint-config-next": "^14.2.4",
-    "react": "^18.3.1",
-    "typescript": "^5.5.3"
-  }
   "license": "Unlicense"
 }

@@ -1,0 +1,5 @@
+{
+  "entryPoints": ["index.ts"],
+  "plugin": ["typedoc-plugin-markdown"],
+  "useFirstParagraphOfCommentAsSummary": true
+}
