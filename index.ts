@@ -60,7 +60,7 @@ export function subStuple<
   K extends T extends any[] ? number & keyof T : keyof T,
   U extends T[K],
 >(outerStuple: Stuple<T>, key: K, initialValue?: U): Stuple<T[K]> {
-  // @ts-ignore // needed because we are using overloaded function types (which is needed for type-tests.ts to pass type checks)
+  // @ts-expect-error // needed because we are using overloaded function types (any[] vs ObjectNotArray) (which is needed for type-tests.ts to pass type checks)
   return asStuple(subState(outerStuple as any, key, initialValue))
 }
 
@@ -83,22 +83,39 @@ export function subState<
   const setParentState = outerStuple.set
   return [
     parentValue[key] === undefined ? initialValue : parentValue[key],
-    (nextValue) => {
-      setParentState((prev) => {
-        const newChildValue =
-          typeof nextValue === 'function' ?
-            (nextValue as any)(
-              prev[key] === undefined ? initialValue : prev[key],
-            )
-          : nextValue
-        if (nextValue === prev[key]) return prev // unchanged
-
-        const newParentValue = { ...prev, [key]: newChildValue }
-        if (Array.isArray(prev)) return Object.assign([], newParentValue)
-        return newParentValue
-      })
-    },
+    // @ts-expect-error // needed because we are using overloaded function types (any[] vs ObjectNotArray)
+    subSetState(setParentState, key, initialValue),
   ] as UsedState<U>
+}
+
+export function subSetState<
+  T extends any[],
+  K extends number & keyof T,
+  U extends T[K],
+>(outerSetState: SetState<T>, key: K, initialValue?: U): SetState<U>
+export function subSetState<
+  T extends ObjectNotArray,
+  K extends keyof T,
+  U extends T[K],
+>(outerSetState: SetState<T>, key: K, initialValue?: U): SetState<U>
+export function subSetState<
+  T extends ObjectNotArray | any[],
+  K extends T extends any[] ? number & keyof T : keyof T,
+  U extends T[K],
+>(outerSetState: SetState<T>, key: K, initialValue?: U): SetState<U> {
+  return (nextValue) => {
+    outerSetState((prev) => {
+      const newChildValue =
+        typeof nextValue === 'function' ?
+          (nextValue as any)(prev[key] === undefined ? initialValue : prev[key])
+        : nextValue
+      if (nextValue === prev[key]) return prev // unchanged
+
+      const newParentValue = { ...prev, [key]: newChildValue }
+      if (Array.isArray(prev)) return Object.assign([], newParentValue)
+      return newParentValue
+    })
+  }
 }
 
 /**
