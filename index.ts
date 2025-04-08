@@ -30,8 +30,10 @@ export type SetState<T> = Dispatch<SetStateAction<T>>
 export type SetStateSimple<T> = (nextState: T) => void
 
 export function useStuple<T>(): Stuple<T | undefined>
-export function useStuple<T = undefined>(initialValue?: T): Stuple<T>
-export function useStuple<T = undefined>(initialValue?: T): Stuple<T> {
+export function useStuple<T = undefined>(initialValue: T | (() => T)): Stuple<T>
+export function useStuple<T = undefined>(
+  initialValue?: T | (() => T),
+): Stuple<T> {
   return asStuple(useState(initialValue)) as Stuple<T>
 }
 
