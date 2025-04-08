@@ -7,6 +7,12 @@ import { useCallback, useReducer, useRef, useState } from 'react'
  */
 export type Stuple<T> = { val: T; set: SetState<T> }
 
+/**
+ * A stuple backed by {@link SetStateSimple} instead of {@link SetState} / {@link UsedState}.
+ *
+ * This simplified stuple cannot be sliced with {@link subStuple} or {@link subState},
+ * but is still useful for cutting prop drilling in half.
+ */
 export type SimpleStuple<T> = { val: T; set: SetStateSimple<T> }
 
 /**
@@ -15,6 +21,12 @@ export type SimpleStuple<T> = { val: T; set: SetStateSimple<T> }
  */
 export type UsedState<T> = readonly [T, SetState<T>]
 
+/**
+ * The same as {@link UsedState}, except that the setter function can only take a value as a parameter,
+ * not a function as would normally be permitted by React's `setState`.
+ *
+ * See {@link SetStateSimple}
+ */
 export type SimpleState<T> = readonly [T, SetStateSimple<T>]
 
 /**
@@ -37,9 +49,12 @@ export function useStuple<T = undefined>(
   return asStuple(useState(initialValue)) as Stuple<T>
 }
 
-export function asStuple<Tuple extends UsedState<any>>(tuple: Tuple) {
+export function asStuple<Tuple extends UsedState<any> | SimpleState<any>>(
+  tuple: Tuple,
+) {
   type ReturnType =
     Tuple extends UsedState<infer T> ? Stuple<T>
+    : Tuple extends SimpleState<infer T> ? SimpleStuple<T>
     : { val: Tuple[0]; set: Tuple[1] }
   return {
     val: tuple[0],
