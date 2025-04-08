@@ -36,8 +36,8 @@ export function useStuple<T = undefined>(initialValue?: T): Stuple<T> {
 }
 
 export function asStuple<Tuple extends UsedState<any>>(tuple: Tuple) {
-  type ReturnType = Tuple extends UsedState<infer T>
-    ? Stuple<T>
+  type ReturnType =
+    Tuple extends UsedState<infer T> ? Stuple<T>
     : { val: Tuple[0]; set: Tuple[1] }
   return {
     val: tuple[0],
@@ -86,11 +86,11 @@ export function subState<
     (nextValue) => {
       setParentState((prev) => {
         const newChildValue =
-          typeof nextValue === 'function'
-            ? (nextValue as any)(
-                prev[key] === undefined ? initialValue : prev[key],
-              )
-            : nextValue
+          typeof nextValue === 'function' ?
+            (nextValue as any)(
+              prev[key] === undefined ? initialValue : prev[key],
+            )
+          : nextValue
         if (nextValue === prev[key]) return prev // unchanged
 
         const newParentValue = { ...prev, [key]: newChildValue }
@@ -119,9 +119,9 @@ export function useStateWithDeps<T>(init: () => T, deps: any[]): UsedState<T> {
   const set: SetState<T> = useCallback(
     (nextState: SetStateAction<T>) => {
       const newValue =
-        typeof nextState === 'function'
-          ? (nextState as (oldState: T) => T)(valueRef.current!.value)
-          : nextState
+        typeof nextState === 'function' ?
+          (nextState as (oldState: T) => T)(valueRef.current!.value)
+        : nextState
       const different = valueRef.current!.value !== newValue
       valueRef.current!.value = newValue
       if (different) triggerRerender()
