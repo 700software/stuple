@@ -65,6 +65,6 @@ A stuple can be sliced into a new stuple with `subStuple` function.
 
 ## Full API documentation.
 
-For full documentation, see the [API docs](./docs/README.md).
+For full documentation, see the [API docs](https://github.com/700software/stuple/tree/main/docs).
 This documentation is generated from the tsdoc comments in the source code.
 Feel free to contact me for questions or make PRs to improve the documentation comments.

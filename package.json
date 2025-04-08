@@ -1,8 +1,12 @@
 {
   "name": "stuple",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "More to come! :)",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/700software/stuple"
+  },
   "scripts": {
     "build": "tsc",
     "publish": "npm install && typedoc && npm run build && git add . && node -e \"require('child_process').execSync(`git commit -m v${require('./package.json').version}`, { stdio: 'inherit' })\"",
