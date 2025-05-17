@@ -8,7 +8,7 @@
 
 > **Stuple**\<`T`\> = `object`
 
-Defined in: [index.ts:8](https://github.com/700software/stuple/blob/16d3a88d65a5c689946e059424116e5180fb7aa3/index.ts#L8)
+Defined in: [index.ts:8](https://github.com/700software/stuple/blob/2869931f62716450da37ebc5ae56851979d9d9a0/index.ts#L8)
 
 Object form of React's `useState` return value [UsedState](UsedState.md).
 
@@ -30,7 +30,7 @@ Object form of React's `useState` return value [UsedState](UsedState.md).
 
 > **set**: [`SetState`](SetState.md)\<`T`\>
 
-Defined in: [index.ts:8](https://github.com/700software/stuple/blob/16d3a88d65a5c689946e059424116e5180fb7aa3/index.ts#L8)
+Defined in: [index.ts:8](https://github.com/700software/stuple/blob/2869931f62716450da37ebc5ae56851979d9d9a0/index.ts#L8)
 
 ***
 
@@ -38,4 +38,4 @@ Defined in: [index.ts:8](https://github.com/700software/stuple/blob/16d3a88d65a5
 
 > **val**: `T`
 
-Defined in: [index.ts:8](https://github.com/700software/stuple/blob/16d3a88d65a5c689946e059424116e5180fb7aa3/index.ts#L8)
+Defined in: [index.ts:8](https://github.com/700software/stuple/blob/2869931f62716450da37ebc5ae56851979d9d9a0/index.ts#L8)

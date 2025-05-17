@@ -8,7 +8,7 @@
 
 > **SimpleStuple**\<`T`\> = `object`
 
-Defined in: [index.ts:16](https://github.com/700software/stuple/blob/16d3a88d65a5c689946e059424116e5180fb7aa3/index.ts#L16)
+Defined in: [index.ts:16](https://github.com/700software/stuple/blob/2869931f62716450da37ebc5ae56851979d9d9a0/index.ts#L16)
 
 A stuple backed by [SetStateSimple](SetStateSimple.md) instead of [SetState](SetState.md) / [UsedState](UsedState.md).
 
@@ -27,7 +27,7 @@ but is still useful for cutting prop drilling in half.
 
 > **set**: [`SetStateSimple`](SetStateSimple.md)\<`T`\>
 
-Defined in: [index.ts:16](https://github.com/700software/stuple/blob/16d3a88d65a5c689946e059424116e5180fb7aa3/index.ts#L16)
+Defined in: [index.ts:16](https://github.com/700software/stuple/blob/2869931f62716450da37ebc5ae56851979d9d9a0/index.ts#L16)
 
 ***
 
@@ -35,4 +35,4 @@ Defined in: [index.ts:16](https://github.com/700software/stuple/blob/16d3a88d65a
 
 > **val**: `T`
 
-Defined in: [index.ts:16](https://github.com/700software/stuple/blob/16d3a88d65a5c689946e059424116e5180fb7aa3/index.ts#L16)
+Defined in: [index.ts:16](https://github.com/700software/stuple/blob/2869931f62716450da37ebc5ae56851979d9d9a0/index.ts#L16)

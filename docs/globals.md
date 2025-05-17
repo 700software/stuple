@@ -20,7 +20,7 @@
 - [subSetState](functions/subSetState.md)
 - [subState](functions/subState.md)
 - [subStuple](functions/subStuple.md)
-- [useRerenderTrigger](functions/useRerenderTrigger.md)
 - [useStateWithDeps](functions/useStateWithDeps.md)
 - [useStuple](functions/useStuple.md)
 - [useStupleWithDeps](functions/useStupleWithDeps.md)
+- [useTriggerRerender](functions/useTriggerRerender.md)

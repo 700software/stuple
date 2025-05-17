@@ -8,7 +8,7 @@
 [![npm license](https://img.shields.io/npm/l/stuple.svg)](https://npmjs.org/package/stuple)
 [![npm type definitions](https://img.shields.io/npm/types/stuple.svg)](https://npmjs.org/package/stuple)
 
-A stuple (pronounced /stŭp′əl/) is very similar to the tuple returned by React's `useState` hook, except that a stuple is an object instead of a hook.
+A stuple (pronounced /stŭp′əl/) is very similar to the tuple returned by React's `useState` hook, except that a stuple is an object instead of an array.
 
 so you can access the tuple's value and setter function by dot notation instead of array destructuring (or worse, array index notation).
 

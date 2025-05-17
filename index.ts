@@ -148,7 +148,7 @@ export function useStupleWithDeps<T>(init: () => T, deps: any[]): Stuple<T> {
 export function useStateWithDeps<T>(init: () => T, deps: any[]): UsedState<T> {
   const valueRef = useRef<{ deps: any[]; value: T }>()
 
-  const triggerRerender = useRerenderTrigger()
+  const triggerRerender = useTriggerRerender()
 
   const set: SetState<T> = useCallback(
     (nextState: SetStateAction<T>) => {
@@ -174,7 +174,7 @@ export function useStateWithDeps<T>(init: () => T, deps: any[]): UsedState<T> {
   return [valueRef.current.value, set]
 }
 
-export function useRerenderTrigger() {
+export function useTriggerRerender() {
   return useReducer(() => ({}), {})[1]
 }
 
