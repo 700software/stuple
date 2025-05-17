@@ -1,6 +1,6 @@
 {
   "name": "stuple",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "More to come! :)",
   "main": "index.js",
   "repository": {
@@ -9,8 +9,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "publish": "npm install && typedoc && npm run build && git add . && node -e \"require('child_process').execSync(`git commit -m v${require('./package.json').version}`, { stdio: 'inherit' })\"",
-    "postpublish": "git push"
+    "prepublish": "npm install && typedoc && npm run build",
+    "postpublish": "git add . && node -e \"require('child_process').execSync(`git commit -m v${require('./package.json').version}`, { stdio: 'inherit' })\" && git push"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
