@@ -146,7 +146,7 @@ export function useStupleWithDeps<T>(init: () => T, deps: any[]): Stuple<T> {
  * Wipes and resets the local state value of any of the deps change.
  */
 export function useStateWithDeps<T>(init: () => T, deps: any[]): UsedState<T> {
-  const valueRef = useRef<{ deps: any[]; value: T }>()
+  const valueRef = useRef<{ deps: any[]; value: T }>(undefined)
 
   const triggerRerender = useTriggerRerender()
 
