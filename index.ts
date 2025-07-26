@@ -1,5 +1,5 @@
-import type { Dispatch, SetStateAction } from 'react'
-import { useCallback, useReducer, useRef, useState } from 'react'
+import type { Dispatch, SetStateAction } from 'react';
+import { useCallback, useReducer, useRef, useState } from 'react';
 
 /**
  * Object form of React's `useState` return value {@link UsedState}.
@@ -176,6 +176,12 @@ export function useStateWithDeps<T>(init: () => T, deps: any[]): UsedState<T> {
 
 export function useTriggerRerender() {
   return useReducer(() => ({}), {})[1]
+}
+
+export function useAlwaysLatest<T>(latestValue: T) {
+  const ref = useRef(latestValue);
+  ref.current = latestValue;
+  return ref;
 }
 
 export type ObjectNotArray = Record<string, unknown>
