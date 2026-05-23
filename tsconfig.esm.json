@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "ES2020",
+    "outDir": "esm",
+    "skipLibCheck": true
+  },
+  "include": [
+    "index.ts",
+    "types.ts",
+    "react-simple-util.ts",
+    "stuple-core.ts",
+    "stuple-memo.ts"
+  ],
+  "exclude": ["node_modules", "type-tests.ts"]
+}

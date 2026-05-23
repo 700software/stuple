@@ -3,13 +3,33 @@
   "version": "0.4.3",
   "description": "More to come! :)",
   "main": "index.js",
+  "types": "index.ts",
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "import": "./esm/index.js",
+      "require": "./index.js",
+      "default": "./index.js"
+    }
+  },
+  "files": [
+    "index.js",
+    "index.ts",
+    "types.ts",
+    "react-simple-util.ts",
+    "stuple-core.ts",
+    "stuple-memo.ts",
+    "esm",
+    "README.md",
+    "docs"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/700software/stuple"
   },
   "scripts": {
-    "build": "tsc",
-    "prepublish": "npm install && typedoc && npm run build",
+    "build": "tsc && tsc -p tsconfig.esm.json",
+    "prepack": "npm install && typedoc && npm run build",
     "postpublish": "git add . && node -e \"require('child_process').execSync(`git commit -m v${require('./package.json').version}`, { stdio: 'inherit' })\" && git push"
   },
   "devDependencies": {

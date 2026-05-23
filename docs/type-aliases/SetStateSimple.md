@@ -8,7 +8,7 @@
 
 > **SetStateSimple**\<`T`\> = (`nextState`) => `void`
 
-Defined in: [index.ts:42](https://github.com/700software/stuple/blob/2869931f62716450da37ebc5ae56851979d9d9a0/index.ts#L42)
+Defined in: [types.ts:39](https://github.com/700software/stuple/blob/ee05ab4773b0cb13fd2c782ff2fae9c556c8811e/types.ts#L39)
 
 This type indicates that you accept a set state function, similar to [SetState](SetState.md),
 but that you never intend to pass a function to it

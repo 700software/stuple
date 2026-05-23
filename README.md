@@ -51,15 +51,44 @@ And now you can do,
 
 And inside of `MyNameComponent`, you can access `firstNameSt.val` and `firstNameSt.set`.
 
-## Slicing a state.
+## Slicing state
 
-A stuple can be sliced into a new stuple with `subStuple` function.
+### Inside React components: `useSubStuple`
+
+Use **`useSubStuple(outerStuple, key, initialValue?)`** when slicing parent state in a component. It returns a child `Stuple` whose **`set` function keeps the same reference** across renders (via `useCallback`), so you can safely list it in `useCallback` / `useEffect` dependencies.
+
+```tsx
+const panelsByRepo = useStuple<Record<string, PanelState>>(() => ({}))
+const panel = useSubStuple(panelsByRepo, activeRepoId, defaultPanelState)
+
+useEffect(() => {
+  void loadStatus(panel.val)
+}, [panel.set, activeRepoId]) // panel.set is stable — no infinite loop
+```
+
+### Outside render / one-off reads: `subStuple`
+
+**`subStuple`** is a plain function (not a hook). It is fine for event handlers or non-React code, but **do not call it during render** to pass a slice into a child that puts `set` in hook dependency arrays — each render creates a **new** `set` function and can cause infinite loops. Use **`useSubStuple`** instead.
+
+## Package layout
+
+| Module              | Contents                                                                  |
+| ------------------- | ------------------------------------------------------------------------- |
+| `react-simple-util` | `useTriggerRerender`, `useAlwaysLatest`                                   |
+| `stuple-core`       | Types, `useStuple`, `asStuple`, `subStuple`, `subState`, `subSetState`    |
+| `stuple-memo`       | `useSubStuple`, `useSubSetState`, `useStateWithDeps`, `useStupleWithDeps` |
+
+Import everything from `"stuple"` as before, or import from subpaths by file if you prefer tree-shaking in custom setups.
 
 ## Nuts and bolts.
 
 `useStuple(...)` is an alias for `asStuple(useState(...))`.
 
 `subStuple(...)` is an alias for `asStuple(subState(...))`.
+
+`useSubStuple(...)` is the hook form of `subStuple` with a stable `set` (via `useSubSetState`).
+
+`useSubSetState(...)` is the hook form of `subSetState` with a stable setter.
 
 `subState` is API-compatible with `useState`.
 

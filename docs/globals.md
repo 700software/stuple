@@ -16,11 +16,15 @@
 
 ## Functions
 
+- [applySubSlice](functions/applySubSlice.md)
 - [asStuple](functions/asStuple.md)
 - [subSetState](functions/subSetState.md)
 - [subState](functions/subState.md)
 - [subStuple](functions/subStuple.md)
+- [useAlwaysLatest](functions/useAlwaysLatest.md)
 - [useStateWithDeps](functions/useStateWithDeps.md)
 - [useStuple](functions/useStuple.md)
 - [useStupleWithDeps](functions/useStupleWithDeps.md)
+- [useSubSetState](functions/useSubSetState.md)
+- [useSubStuple](functions/useSubStuple.md)
 - [useTriggerRerender](functions/useTriggerRerender.md)

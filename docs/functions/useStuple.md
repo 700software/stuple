@@ -10,7 +10,7 @@
 
 > **useStuple**\<`T`\>(): [`Stuple`](../type-aliases/Stuple.md)\<`undefined` \| `T`\>
 
-Defined in: [index.ts:44](https://github.com/700software/stuple/blob/2869931f62716450da37ebc5ae56851979d9d9a0/index.ts#L44)
+Defined in: [stuple-core.ts:23](https://github.com/700software/stuple/blob/ee05ab4773b0cb13fd2c782ff2fae9c556c8811e/stuple-core.ts#L23)
 
 ### Type Parameters
 
@@ -26,7 +26,7 @@ Defined in: [index.ts:44](https://github.com/700software/stuple/blob/2869931f627
 
 > **useStuple**\<`T`\>(`initialValue`): [`Stuple`](../type-aliases/Stuple.md)\<`T`\>
 
-Defined in: [index.ts:45](https://github.com/700software/stuple/blob/2869931f62716450da37ebc5ae56851979d9d9a0/index.ts#L45)
+Defined in: [stuple-core.ts:24](https://github.com/700software/stuple/blob/ee05ab4773b0cb13fd2c782ff2fae9c556c8811e/stuple-core.ts#L24)
 
 ### Type Parameters
 

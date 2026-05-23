@@ -8,7 +8,7 @@
 
 > **SetState**\<`T`\> = `Dispatch`\<`SetStateAction`\<`T`\>\>
 
-Defined in: [index.ts:35](https://github.com/700software/stuple/blob/2869931f62716450da37ebc5ae56851979d9d9a0/index.ts#L35)
+Defined in: [types.ts:32](https://github.com/700software/stuple/blob/ee05ab4773b0cb13fd2c782ff2fae9c556c8811e/types.ts#L32)
 
 Shorthand alias type for the vanilla React set state function.
 

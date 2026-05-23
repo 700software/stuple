@@ -8,9 +8,9 @@
 
 > **useStupleWithDeps**\<`T`\>(`init`, `deps`): [`Stuple`](../type-aliases/Stuple.md)\<`T`\>
 
-Defined in: [index.ts:141](https://github.com/700software/stuple/blob/2869931f62716450da37ebc5ae56851979d9d9a0/index.ts#L141)
+Defined in: [stuple-memo.ts:134](https://github.com/700software/stuple/blob/ee05ab4773b0cb13fd2c782ff2fae9c556c8811e/stuple-memo.ts#L134)
 
-Same as [useStateWithDeps](useStateWithDeps.md) but returns the tuple [Stuple](../type-aliases/Stuple.md) format instead of [UsedState](../type-aliases/UsedState.md) format.
+Same as [useStateWithDeps](useStateWithDeps.md) but returns the [Stuple](../type-aliases/Stuple.md) format instead of [UsedState](../type-aliases/UsedState.md).
 
 ## Type Parameters
 

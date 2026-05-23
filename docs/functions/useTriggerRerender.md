@@ -6,10 +6,12 @@
 
 # Function: useTriggerRerender()
 
-> **useTriggerRerender**(): `DispatchWithoutAction`
+> **useTriggerRerender**(): `ActionDispatch`\<\[\]\>
 
-Defined in: [index.ts:177](https://github.com/700software/stuple/blob/2869931f62716450da37ebc5ae56851979d9d9a0/index.ts#L177)
+Defined in: [react-simple-util.ts:4](https://github.com/700software/stuple/blob/ee05ab4773b0cb13fd2c782ff2fae9c556c8811e/react-simple-util.ts#L4)
+
+Force a re-render without changing React state.
 
 ## Returns
 
-`DispatchWithoutAction`
+`ActionDispatch`\<\[\]\>

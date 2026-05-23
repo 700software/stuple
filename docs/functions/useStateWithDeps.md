@@ -8,9 +8,9 @@
 
 > **useStateWithDeps**\<`T`\>(`init`, `deps`): [`UsedState`](../type-aliases/UsedState.md)\<`T`\>
 
-Defined in: [index.ts:148](https://github.com/700software/stuple/blob/2869931f62716450da37ebc5ae56851979d9d9a0/index.ts#L148)
+Defined in: [stuple-memo.ts:102](https://github.com/700software/stuple/blob/ee05ab4773b0cb13fd2c782ff2fae9c556c8811e/stuple-memo.ts#L102)
 
-Wipes and resets the local state value of any of the deps change.
+Wipes and resets the local state value when any dependency changes.
 
 ## Type Parameters
 

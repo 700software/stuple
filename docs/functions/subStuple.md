@@ -10,7 +10,10 @@
 
 > **subStuple**\<`T`, `K`, `U`\>(`outerStuple`, `key`, `initialValue`?): [`Stuple`](../type-aliases/Stuple.md)\<`T`\[`K`\]\>
 
-Defined in: [index.ts:65](https://github.com/700software/stuple/blob/2869931f62716450da37ebc5ae56851979d9d9a0/index.ts#L65)
+Defined in: [stuple-core.ts:69](https://github.com/700software/stuple/blob/ee05ab4773b0cb13fd2c782ff2fae9c556c8811e/stuple-core.ts#L69)
+
+Slice a child stuple from parent state. Not a hook — returns a new `set` on every call.
+In components, prefer [useSubStuple](useSubStuple.md) so `set` stays referentially stable.
 
 ### Type Parameters
 
@@ -48,7 +51,10 @@ Defined in: [index.ts:65](https://github.com/700software/stuple/blob/2869931f627
 
 > **subStuple**\<`T`, `K`, `U`\>(`outerStuple`, `key`, `initialValue`?): [`Stuple`](../type-aliases/Stuple.md)\<`T`\[`K`\]\>
 
-Defined in: [index.ts:70](https://github.com/700software/stuple/blob/2869931f62716450da37ebc5ae56851979d9d9a0/index.ts#L70)
+Defined in: [stuple-core.ts:74](https://github.com/700software/stuple/blob/ee05ab4773b0cb13fd2c782ff2fae9c556c8811e/stuple-core.ts#L74)
+
+Slice a child stuple from parent state. Not a hook — returns a new `set` on every call.
+In components, prefer [useSubStuple](useSubStuple.md) so `set` stays referentially stable.
 
 ### Type Parameters
 
